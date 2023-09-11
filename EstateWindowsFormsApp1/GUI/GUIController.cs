@@ -10,7 +10,11 @@ namespace EstateWindowsFormsApp1.GUI
 {
     public class GUIController
     {
-        private List<Estate> addedEstatesList = new List<Estate>();
+        private static List<Estate> addedEstatesList = new List<Estate>();
+
+        public GUIController() 
+        {
+        }
 
         public void AddEstate(Estate estate)
         {
