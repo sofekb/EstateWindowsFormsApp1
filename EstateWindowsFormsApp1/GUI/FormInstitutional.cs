@@ -97,9 +97,9 @@ namespace EstateWindowsFormsApp1.GUI
 
                     try
                     {
-                        estate = new School(id, address, category, legalForm, name);
+                        //estate = new School(id, address, category, legalForm, name);
                         Console.WriteLine("school created");
-                        guiController.AddEstate(estate);
+                        //guiController.AddEstate(estate);
                     }
                     catch (Exception ex)
                     {

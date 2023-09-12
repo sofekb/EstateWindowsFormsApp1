@@ -8,27 +8,16 @@ namespace EstateWindowsFormsApp1.Estates.Institutional
 {
     public abstract class Institutional : Estate
     {
-        private string name;
-        private GovernTypes governType;
+        public string Name { get; set; }
+        public GovernTypes GovernType { get; set; }
 
-        //constructor with only base parameters
+        //constructor (GovernType is not mandatory)
         public Institutional (int id, Address address, Category category, LegalForm legalForm, string name)
             : base (id, address, category, legalForm)
         {
-            this.name = name;
+            Name = name;
         }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public GovernTypes GovernType
-        {
-            get { return governType;  }
-            set { governType = value; }
-        }
 
     }
 }

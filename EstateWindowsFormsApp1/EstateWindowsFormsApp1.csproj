@@ -48,14 +48,24 @@
   <ItemGroup>
     <Compile Include="Estates\Address.cs" />
     <Compile Include="Estates\Category.cs" />
+    <Compile Include="Estates\Commercial\Commercial.cs" />
+    <Compile Include="Estates\Commercial\Office.cs" />
+    <Compile Include="Estates\Commercial\Shop.cs" />
+    <Compile Include="Estates\Commercial\Warehouse.cs" />
     <Compile Include="Estates\Countries.cs" />
     <Compile Include="Estates\Estate.cs" />
     <Compile Include="Estates\IEstate.cs" />
     <Compile Include="Estates\Institutional\GovernTypes.cs" />
     <Compile Include="Estates\Institutional\GradeLevels.cs" />
+    <Compile Include="Estates\Institutional\Hospital.cs" />
     <Compile Include="Estates\Institutional\Institutional.cs" />
     <Compile Include="Estates\Institutional\School.cs" />
+    <Compile Include="Estates\Institutional\University.cs" />
     <Compile Include="Estates\LegalForm.cs" />
+    <Compile Include="Estates\Residential\Apartment.cs" />
+    <Compile Include="Estates\Residential\Residential.cs" />
+    <Compile Include="Estates\Residential\TownHouse.cs" />
+    <Compile Include="Estates\Residential\Villa.cs" />
     <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

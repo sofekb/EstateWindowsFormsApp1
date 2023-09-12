@@ -129,5 +129,54 @@ namespace EstateWindowsFormsApp1
             shopContainer.Visible = false;
             warehouseContainer.Visible = false;
         }
+
+        //when user clicks on "Add estate"
+        private void addEstateButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //getting the information from estate container
+        private void getEstateInformaion()
+        {
+            Estate estate;
+
+            string category = categoryComboBox.Text;
+            string idString = idTextBox.Text; //omvandlar till int - inputFormat-kontroll?
+            int id;
+            int.TryParse(idString, out id);
+
+            LegalForm legalForm = (LegalForm)legalFormComboBox.SelectedItem;
+
+            //creating an Address-object
+            string street = streetTextBox.Text;
+            string zipCode = zipCodeTextBox.Text;
+            string city = cityTextBox.Text;
+            Countries country = (Countries)countryComboBox.SelectedItem;
+            Address address = new Address(street, zipCode, city, country);
+
+
+        }
+
+        //getting information from category container
+        private void getCategoryInformation(string category)
+        {
+            switch (category)
+            {
+                case "Institutional":
+                    string institutionName = institutionNameTextBox.Text;
+                    string governType = governTypeComboBox.Text; //behandla annourlunda pga Enum?
+                    break;
+                case "Residential":
+                    decimal numberOfBedrooms = noOfBedroomsControl.Value;
+                    string squareMeterString = squareMeterBedroomTextBox.Text;
+                    int squareMeter;
+                    int.TryParse(squareMeterString, out squareMeter); //omvandlar till int - inputFormat-kontroll?
+                    break;
+                case "Commercial":
+                    string companyName = companyNameTextBox.Text;
+                    break;
+            }
+        }
     }
 }

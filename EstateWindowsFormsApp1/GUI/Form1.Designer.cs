@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.addEstateButton = new System.Windows.Forms.Button();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,13 +54,13 @@
             this.governTypeComboBox = new System.Windows.Forms.ComboBox();
             this.institutionNameTextBox = new System.Windows.Forms.TextBox();
             this.residentialContainer = new System.Windows.Forms.SplitContainer();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.squareMeterBedroomTextBox = new System.Windows.Forms.TextBox();
             this.noOfBedroomsControl = new System.Windows.Forms.NumericUpDown();
             this.commercialContainer = new System.Windows.Forms.SplitContainer();
             this.label13 = new System.Windows.Forms.Label();
             this.companyNameTextBox = new System.Windows.Forms.TextBox();
-            this.squareMeterBedroomTextBox = new System.Windows.Forms.TextBox();
             this.hospitalContainer = new System.Windows.Forms.SplitContainer();
             this.label14 = new System.Windows.Forms.Label();
             this.maxCapacityTextBox = new System.Windows.Forms.TextBox();
@@ -84,7 +84,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.shopContainer = new System.Windows.Forms.SplitContainer();
             this.label21 = new System.Windows.Forms.Label();
-            this.productTypeTextBox = new System.Windows.Forms.TextBox();
+            this.retailGenreTextBox = new System.Windows.Forms.TextBox();
             this.warehouseContainer = new System.Windows.Forms.SplitContainer();
             this.label22 = new System.Windows.Forms.Label();
             this.squareMetersTextBox = new System.Windows.Forms.TextBox();
@@ -146,15 +146,16 @@
             this.warehouseContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // addEstateButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 382);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add estate";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
+            this.addEstateButton.Location = new System.Drawing.Point(12, 382);
+            this.addEstateButton.Name = "addEstateButton";
+            this.addEstateButton.Size = new System.Drawing.Size(75, 23);
+            this.addEstateButton.TabIndex = 0;
+            this.addEstateButton.Text = "Add estate";
+            this.addEstateButton.UseVisualStyleBackColor = true;
+            this.addEstateButton.Visible = false;
+            this.addEstateButton.Click += new System.EventHandler(this.addEstateButton_Click);
             // 
             // categoryComboBox
             // 
@@ -418,6 +419,15 @@
             this.residentialContainer.TabIndex = 23;
             this.residentialContainer.Visible = false;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(0, 35);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Square meter";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -427,14 +437,12 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Number of bedrooms";
             // 
-            // label12
+            // squareMeterBedroomTextBox
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(0, 35);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Square meter";
+            this.squareMeterBedroomTextBox.Location = new System.Drawing.Point(4, 27);
+            this.squareMeterBedroomTextBox.Name = "squareMeterBedroomTextBox";
+            this.squareMeterBedroomTextBox.Size = new System.Drawing.Size(100, 20);
+            this.squareMeterBedroomTextBox.TabIndex = 1;
             // 
             // noOfBedroomsControl
             // 
@@ -475,13 +483,6 @@
             this.companyNameTextBox.Name = "companyNameTextBox";
             this.companyNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.companyNameTextBox.TabIndex = 0;
-            // 
-            // squareMeterBedroomTextBox
-            // 
-            this.squareMeterBedroomTextBox.Location = new System.Drawing.Point(4, 27);
-            this.squareMeterBedroomTextBox.Name = "squareMeterBedroomTextBox";
-            this.squareMeterBedroomTextBox.Size = new System.Drawing.Size(100, 20);
-            this.squareMeterBedroomTextBox.TabIndex = 1;
             // 
             // hospitalContainer
             // 
@@ -725,7 +726,7 @@
             // 
             // shopContainer.Panel2
             // 
-            this.shopContainer.Panel2.Controls.Add(this.productTypeTextBox);
+            this.shopContainer.Panel2.Controls.Add(this.retailGenreTextBox);
             this.shopContainer.Size = new System.Drawing.Size(335, 20);
             this.shopContainer.SplitterDistance = 111;
             this.shopContainer.TabIndex = 32;
@@ -736,16 +737,16 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(3, 7);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 13);
+            this.label21.Size = new System.Drawing.Size(64, 13);
             this.label21.TabIndex = 0;
-            this.label21.Text = "Type of products";
+            this.label21.Text = "Retail genre";
             // 
-            // productTypeTextBox
+            // retailGenreTextBox
             // 
-            this.productTypeTextBox.Location = new System.Drawing.Point(3, 0);
-            this.productTypeTextBox.Name = "productTypeTextBox";
-            this.productTypeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.productTypeTextBox.TabIndex = 0;
+            this.retailGenreTextBox.Location = new System.Drawing.Point(3, 0);
+            this.retailGenreTextBox.Name = "retailGenreTextBox";
+            this.retailGenreTextBox.Size = new System.Drawing.Size(100, 20);
+            this.retailGenreTextBox.TabIndex = 0;
             // 
             // warehouseContainer
             // 
@@ -800,7 +801,7 @@
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.estateContainer);
             this.Controls.Add(this.buildingTypeContainer);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addEstateButton);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Modern Real Estates by Sofia Ekberg";
@@ -894,7 +895,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addEstateButton;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -950,7 +951,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.SplitContainer shopContainer;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox productTypeTextBox;
+        private System.Windows.Forms.TextBox retailGenreTextBox;
         private System.Windows.Forms.SplitContainer warehouseContainer;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox squareMetersTextBox;
