@@ -10,31 +10,11 @@ namespace EstateWindowsFormsApp1.GUI
 {
     public class GUIController
     {
-        private static List<Estate> addedEstatesList = new List<Estate>();
+        public Estate CurrentEstate { get; set; } //keeping track of the current estate in the Form
 
         public GUIController() 
         {
         }
 
-        public void AddEstate(Estate estate)
-        {
-            addedEstatesList.Add(estate);
-        }
-
-        public List<Estate> GetEstatesList() 
-        {
-            return addedEstatesList;
-        }
-
-        public void UpdateAddedEstatesListView(ListView listView, List<Estate> addedEstatesList)
-        {
-            listView.Items.Clear();
-
-            foreach (Estate estate in addedEstatesList) 
-            {
-                ListViewItem item = new ListViewItem(estate.EstateAddress.Street);
-
-            }
-        }
     }
 }

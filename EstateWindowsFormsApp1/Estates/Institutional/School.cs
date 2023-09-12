@@ -8,10 +8,12 @@ namespace EstateWindowsFormsApp1.Estates.Institutional
 {
     public class School : Institutional
     {
-        public GradeLevels GradeLevel { get; set; }
+        public string GradeLevel { get; set; }
 
-        public School(int id, Address address, Category category, LegalForm legalForm, 
-            string name, GradeLevels gradeLevel) 
+        public School() { }
+
+        public School(int id, Address address, string category, string legalForm, 
+            string name, string gradeLevel) 
             : base(id, address, category, legalForm, name)
         {
             GradeLevel = gradeLevel;

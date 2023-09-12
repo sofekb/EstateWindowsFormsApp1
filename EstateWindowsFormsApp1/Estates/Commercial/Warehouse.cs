@@ -10,7 +10,7 @@ namespace EstateWindowsFormsApp1.Estates.Commercial
     {
         public int SquareMeters { get; set; }
 
-        public Warehouse(int id, Address address, Category category, LegalForm legalForm, 
+        public Warehouse(int id, Address address, string category, string legalForm, 
             string companyName, int squareMeters) 
             : base(id, address, category, legalForm, companyName)
         {

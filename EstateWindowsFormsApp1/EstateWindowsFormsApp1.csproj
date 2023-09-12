@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Estates\Address.cs" />
-    <Compile Include="Estates\Category.cs" />
+    <Compile Include="Estates\Categories.cs" />
     <Compile Include="Estates\Commercial\Commercial.cs" />
     <Compile Include="Estates\Commercial\Office.cs" />
     <Compile Include="Estates\Commercial\Shop.cs" />
@@ -55,8 +55,6 @@
     <Compile Include="Estates\Countries.cs" />
     <Compile Include="Estates\Estate.cs" />
     <Compile Include="Estates\IEstate.cs" />
-    <Compile Include="Estates\Institutional\GovernTypes.cs" />
-    <Compile Include="Estates\Institutional\GradeLevels.cs" />
     <Compile Include="Estates\Institutional\Hospital.cs" />
     <Compile Include="Estates\Institutional\Institutional.cs" />
     <Compile Include="Estates\Institutional\School.cs" />
@@ -72,20 +70,11 @@
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FormInstitutional.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormInstitutional.Designer.cs">
-      <DependentUpon>FormInstitutional.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\GUIController.cs" />
     <Compile Include="Logic\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormInstitutional.resx">
-      <DependentUpon>FormInstitutional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

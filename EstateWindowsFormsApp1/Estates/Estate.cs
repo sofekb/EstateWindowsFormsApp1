@@ -8,17 +8,23 @@ namespace EstateWindowsFormsApp1.Estates
 {
     public abstract class Estate : IEstate
     {
+        private static int lastId = 0;  //static counter for id
         public int Id { get; set; }
         public Address EstateAddress { get; set; }
-        public Category EstateCategory { get; set; }
-        public LegalForm EstateLegalForm { get; set; }
+        public string Category { get; set; }
+        public string LegalForm { get; set; }
 
-        public Estate(int id, Address address, Category category, LegalForm legalForm)
+        public Estate() 
+        {
+            Id = ++lastId;
+        }
+
+        public Estate(int id, Address address, string category, string legalForm)
         {
             Id = id;
             EstateAddress = address;
-            EstateCategory = category;
-            EstateLegalForm = legalForm;
+            Category = category;
+            LegalForm = legalForm;
         }
 
     }

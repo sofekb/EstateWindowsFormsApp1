@@ -13,9 +13,9 @@ namespace EstateWindowsFormsApp1.Estates
 
         Address EstateAddress { get; set; }
 
-        Category EstateCategory{ get; set; }
+        string Category{ get; set; }
 
-        LegalForm EstateLegalForm { get; set; }
+        string LegalForm { get; set; }
 
     }
 }

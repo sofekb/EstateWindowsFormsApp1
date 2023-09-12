@@ -1,4 +1,7 @@
 ﻿using EstateWindowsFormsApp1.Estates;
+using EstateWindowsFormsApp1.Estates.Commercial;
+using EstateWindowsFormsApp1.Estates.Institutional;
+using EstateWindowsFormsApp1.Estates.Residential;
 using EstateWindowsFormsApp1.GUI;
 using System;
 using System.Collections.Generic;
@@ -18,8 +21,7 @@ namespace EstateWindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            List<Estate> estatesList = guiController.GetEstatesList();
-            
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -114,6 +116,7 @@ namespace EstateWindowsFormsApp1
         private void buildingTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             visibleBuildingTypeElements();
+            addEstateButton.Visible = true;
         }
 
         //empties building-specific containers
@@ -133,29 +136,101 @@ namespace EstateWindowsFormsApp1
         //when user clicks on "Add estate"
         private void addEstateButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        //getting the information from estate container
-        private void getEstateInformaion()
-        {
             Estate estate;
 
             string category = categoryComboBox.Text;
-            string idString = idTextBox.Text; //omvandlar till int - inputFormat-kontroll?
-            int id;
-            int.TryParse(idString, out id);
+            string buildingType = buildingTypeComboBox.Text;
+            switch (buildingType)
+            {
+                case "Hospital":
+                    estate = new Hospital();
+                    break;
+                case "School":
+                    estate = new School();
+                    break;
+                default:                        //skapades bara för att inte estate skulle vara unassigned
+                    estate = new Hospital();
+                    break;
+                /*case "University":             //bortkommenterat - behöver skapas default konstruktorer
+                    break;
+                case "Villa":
+                    break;
+                case "Town house":
+                    break;
+                case "Apartment":
+                    break;
+                case "Office":
+                    break;
+                case "Shop":
+                    break;
+                case "Warehouse":
+                    break;*/
+            }
+            guiController.CurrentEstate = estate;
+            SetEstateProperties(estate, category);
+            SetCategoryProperties(estate);
 
-            LegalForm legalForm = (LegalForm)legalFormComboBox.SelectedItem;
+            idLabel.Text = estate.Id.ToString(); //prints the id onto the Form
 
-            //creating an Address-object
+            addEstateButton.Visible = false;
+            editEstateButton.Visible = true;
+            clearButton.Visible = true;
+        }
+
+        //setting the estate properties from the estate container
+        private void SetEstateProperties(Estate estate, string category)
+        {
+            estate.Category = category;
+            estate.LegalForm = legalFormComboBox.Text;
+
+            //creating an Address-object and adding it to the estate
             string street = streetTextBox.Text;
             string zipCode = zipCodeTextBox.Text;
             string city = cityTextBox.Text;
             Countries country = (Countries)countryComboBox.SelectedItem;
             Address address = new Address(street, zipCode, city, country);
+            estate.EstateAddress = address;
+        }
+
+        //calling the correct category properties setting method depending on category
+        private void SetCategoryProperties(Estate estate)
+        {
+            if (estate is Institutional)
+            {
+                SetInstitutionalProperties((Institutional)estate);
+            }
+            else if (estate is Residential)
+            {
+                SetResidentialProperties((Residential)estate);
+            }
+            else if(estate is Commercial)
+            {
+                SetCommercialProperties((Commercial)estate);
+            }
+        }
 
 
+        //setting the properties for an Institutional object form the institutionContainer
+        private void SetInstitutionalProperties(Institutional estate)
+        {
+            estate.Name = institutionNameTextBox.Text;
+            estate.GovernType = governTypeComboBox.Text;
+        }
+
+        //setting the properties for a Residential object from the residentialContainer
+        private void SetResidentialProperties(Residential estate)
+        {
+            estate.Bedrooms = (int)noOfBedroomsControl.Value;
+            string squareMeterString = squareMeterBedroomTextBox.Text;
+            int squareMeter;
+            int.TryParse(squareMeterString, out squareMeter); //kolla så det är rätt format
+            estate.SquareMeter = squareMeter;
+        }
+
+        //setting the properties for a Commercial object from the commercialContainer
+        private void SetCommercialProperties(Commercial estate)
+        {
+            estate.CompanyName = companyNameTextBox.Text;
         }
 
         //getting information from category container
@@ -177,6 +252,21 @@ namespace EstateWindowsFormsApp1
                     string companyName = companyNameTextBox.Text;
                     break;
             }
+        }
+
+
+        //clears the Form from input
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            guiController.CurrentEstate = null;
+            this.InitializeComponent();
+        }
+
+        //updates the current estates to changed values
+        private void editEstateButton_Click(object sender, EventArgs e)
+        {
+          //  if (currentEstate is )
         }
     }
 }

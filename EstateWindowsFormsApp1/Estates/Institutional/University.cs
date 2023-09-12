@@ -10,7 +10,7 @@ namespace EstateWindowsFormsApp1.Estates.Institutional
     {
         public int NumberOfStudents;
 
-        public University(int id, Address address, Category category, LegalForm legalForm, 
+        public University(int id, Address address, string category, string legalForm, 
             string name, int numberOfStudents) 
             : base(id, address, category, legalForm, name)
         {

@@ -1,6 +1,6 @@
 ﻿// EstateCategory.cs
 
-public enum Category
+public enum Categories
 {
     Residential,
     Commercial,

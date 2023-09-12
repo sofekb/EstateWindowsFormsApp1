@@ -1,4 +1,6 @@
-﻿namespace EstateWindowsFormsApp1
+﻿using System;
+
+namespace EstateWindowsFormsApp1
 {
     partial class Form1
     {
@@ -41,12 +43,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.idLabel = new System.Windows.Forms.Label();
             this.legalFormComboBox = new System.Windows.Forms.ComboBox();
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.zipCodeTextBox = new System.Windows.Forms.TextBox();
             this.streetTextBox = new System.Windows.Forms.TextBox();
-            this.idTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.institutionContainer = new System.Windows.Forms.SplitContainer();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,7 +68,7 @@
             this.maxCapacityTextBox = new System.Windows.Forms.TextBox();
             this.schoolContainer = new System.Windows.Forms.SplitContainer();
             this.label15 = new System.Windows.Forms.Label();
-            this.gradeLevelTextBox = new System.Windows.Forms.TextBox();
+            this.gradeLevelComboBox = new System.Windows.Forms.ComboBox();
             this.universityContainer = new System.Windows.Forms.SplitContainer();
             this.label16 = new System.Windows.Forms.Label();
             this.noOfstudentsTextBox = new System.Windows.Forms.TextBox();
@@ -81,13 +83,15 @@
             this.floorControl = new System.Windows.Forms.NumericUpDown();
             this.officeContainer = new System.Windows.Forms.SplitContainer();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.noOfRoomsControl = new System.Windows.Forms.NumericUpDown();
             this.shopContainer = new System.Windows.Forms.SplitContainer();
             this.label21 = new System.Windows.Forms.Label();
             this.retailGenreTextBox = new System.Windows.Forms.TextBox();
             this.warehouseContainer = new System.Windows.Forms.SplitContainer();
             this.label22 = new System.Windows.Forms.Label();
             this.squareMetersTextBox = new System.Windows.Forms.TextBox();
+            this.editEstateButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.buildingTypeContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estateContainer)).BeginInit();
             this.estateContainer.Panel1.SuspendLayout();
@@ -136,6 +140,7 @@
             this.officeContainer.Panel1.SuspendLayout();
             this.officeContainer.Panel2.SuspendLayout();
             this.officeContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.noOfRoomsControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shopContainer)).BeginInit();
             this.shopContainer.Panel1.SuspendLayout();
             this.shopContainer.Panel2.SuspendLayout();
@@ -227,12 +232,12 @@
             // 
             // estateContainer.Panel2
             // 
+            this.estateContainer.Panel2.Controls.Add(this.idLabel);
             this.estateContainer.Panel2.Controls.Add(this.legalFormComboBox);
             this.estateContainer.Panel2.Controls.Add(this.countryComboBox);
             this.estateContainer.Panel2.Controls.Add(this.cityTextBox);
             this.estateContainer.Panel2.Controls.Add(this.zipCodeTextBox);
             this.estateContainer.Panel2.Controls.Add(this.streetTextBox);
-            this.estateContainer.Panel2.Controls.Add(this.idTextBox);
             this.estateContainer.Size = new System.Drawing.Size(298, 146);
             this.estateContainer.SplitterDistance = 99;
             this.estateContainer.TabIndex = 20;
@@ -292,20 +297,225 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Id";
             // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(3, 7);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(0, 13);
+            this.idLabel.TabIndex = 11;
+            // 
             // legalFormComboBox
             // 
             this.legalFormComboBox.FormattingEnabled = true;
+            this.legalFormComboBox.Items.AddRange(new object[] {
+            "Ownership",
+            "Tenement",
+            "Rental"});
             this.legalFormComboBox.Location = new System.Drawing.Point(4, 119);
             this.legalFormComboBox.Name = "legalFormComboBox";
-            this.legalFormComboBox.Size = new System.Drawing.Size(121, 21);
+            this.legalFormComboBox.Size = new System.Drawing.Size(147, 21);
             this.legalFormComboBox.TabIndex = 10;
             // 
             // countryComboBox
             // 
-            this.countryComboBox.FormattingEnabled = true;
+            this.countryComboBox.DataSource = new Countries[] {
+        Countries.Afghanistan,
+        Countries.Algeria,
+        Countries.Andorra,
+        Countries.Angola,
+        Countries.Antigua_and_Barbuda,
+        Countries.Argentina,
+        Countries.Armenia,
+        Countries.Australia,
+        Countries.Austria,
+        Countries.Azerbaijan,
+        Countries.Bahamas,
+        Countries.Bahrain,
+        Countries.Bangladesh,
+        Countries.Barbados,
+        Countries.Belarus,
+        Countries.Belgium,
+        Countries.Belize,
+        Countries.Benin,
+        Countries.Bhutan,
+        Countries.Bolivia,
+        Countries.Bosnia_and_Herzegovina,
+        Countries.Botswana,
+        Countries.Brazil,
+        Countries.Brunei,
+        Countries.Bulgaria,
+        Countries.Burkina_Faso,
+        Countries.Burundi,
+        Countries.Cambodia,
+        Countries.Cameroon,
+        Countries.Canada,
+        Countries.Cape_Verde,
+        Countries.Central_African_Republic,
+        Countries.Chad,
+        Countries.Chile,
+        Countries.China,
+        Countries.Colombia,
+        Countries.Comoros,
+        Countries.Congo,
+        Countries.Democratic_Republic_of_the_Congo,
+        Countries.Costa_Rica,
+        Countries.Côte_d_Ivoire,
+        Countries.Croatia,
+        Countries.Cuba,
+        Countries.Cyprus,
+        Countries.Czech_Republic,
+        Countries.Denmark,
+        Countries.Djibouti,
+        Countries.Dominica,
+        Countries.Dominican_Republic,
+        Countries.East_Timor_or_Timur,
+        Countries.Ecuador,
+        Countries.Egypt,
+        Countries.El_Salvador,
+        Countries.Equatorial_Guinea,
+        Countries.Eritrea,
+        Countries.Estonia,
+        Countries.Ethiopia,
+        Countries.Fiji,
+        Countries.Finland,
+        Countries.France,
+        Countries.Gabon,
+        Countries.Gambia,
+        Countries.Georgia,
+        Countries.Germany,
+        Countries.Ghana,
+        Countries.Greece,
+        Countries.Grenada,
+        Countries.Guatemala,
+        Countries.Guinea,
+        Countries.Guinea_Bissau,
+        Countries.Guyana,
+        Countries.Haiti,
+        Countries.Honduras,
+        Countries.Hungary,
+        Countries.Iceland,
+        Countries.India,
+        Countries.Indonesia,
+        Countries.Iran,
+        Countries.Iraq,
+        Countries.Ireland,
+        Countries.Israel,
+        Countries.Italy,
+        Countries.Jamaica,
+        Countries.Japan,
+        Countries.Jordan,
+        Countries.Kazakhstan,
+        Countries.Kenya,
+        Countries.Kiribati,
+        Countries.Korea_North,
+        Countries.Korea_South,
+        Countries.Kuwait,
+        Countries.Kyrgyzstan,
+        Countries.Laos,
+        Countries.Latvia,
+        Countries.Lebanon,
+        Countries.Lesotho,
+        Countries.Liberia,
+        Countries.Libya,
+        Countries.Liechtenstein,
+        Countries.Lithuania,
+        Countries.Luxembourg,
+        Countries.Macedonia,
+        Countries.Madagascar,
+        Countries.Malawi,
+        Countries.Malaysia,
+        Countries.Maldives,
+        Countries.Mali,
+        Countries.Malta,
+        Countries.Marshall_Islands,
+        Countries.Mauritania,
+        Countries.Mauritius,
+        Countries.Mexico,
+        Countries.Micronesia_Federated_States_of,
+        Countries.Moldova,
+        Countries.Monaco,
+        Countries.Mongolia,
+        Countries.Morocco,
+        Countries.Mozambique,
+        Countries.Myanmar,
+        Countries.Namibia,
+        Countries.Nauru,
+        Countries.Nepal,
+        Countries.Netherlands,
+        Countries.New_Zealand,
+        Countries.Nicaragua,
+        Countries.Niger,
+        Countries.Nigeria,
+        Countries.Norway,
+        Countries.Oman,
+        Countries.Pakistan,
+        Countries.Palau,
+        Countries.Panama,
+        Countries.Papua_New_Guinea,
+        Countries.Paraguay,
+        Countries.Peru,
+        Countries.Philippines,
+        Countries.Poland,
+        Countries.Portugal,
+        Countries.Qatar,
+        Countries.Romania,
+        Countries.Russia,
+        Countries.Rwanda,
+        Countries.Saint_Kitts_and_Nevis,
+        Countries.Saint_Lucia,
+        Countries.Saint_Vincent_and_The_Grenadines,
+        Countries.Samoa,
+        Countries.San_Marino,
+        Countries.Sao_Tome_and_Principe,
+        Countries.Saudi_Arabia,
+        Countries.Senegal,
+        Countries.Serbia_and_Montenegro,
+        Countries.Seychelles,
+        Countries.Sierra_Leone,
+        Countries.Singapore,
+        Countries.Slovakia,
+        Countries.Slovenia,
+        Countries.Solomon_Islands,
+        Countries.Somalia,
+        Countries.South_Africa,
+        Countries.Spain,
+        Countries.Sri_Lanka,
+        Countries.Sudan,
+        Countries.Suriname,
+        Countries.Swaziland,
+        Countries.Sverige,
+        Countries.Switzerland,
+        Countries.Syria,
+        Countries.Taiwan,
+        Countries.Tajikistan,
+        Countries.Tanzania,
+        Countries.Thailand,
+        Countries.Togo,
+        Countries.Tonga,
+        Countries.Trinidad_and_Tobago,
+        Countries.Tunisia,
+        Countries.Turkey,
+        Countries.Turkmenistan,
+        Countries.Tuvalu,
+        Countries.Uganda,
+        Countries.Ukraine,
+        Countries.United_Arab_Emirates,
+        Countries.United_Kingdom,
+        Countries.United_States_of_America,
+        Countries.Uruguay,
+        Countries.Uzbekistan,
+        Countries.Vanuatu,
+        Countries.Vatican_City,
+        Countries.Venezuela,
+        Countries.Vietnam,
+        Countries.Western_Sahara,
+        Countries.Yemen,
+        Countries.Zambia,
+        Countries.Zimbabwe};
             this.countryComboBox.Location = new System.Drawing.Point(4, 94);
             this.countryComboBox.Name = "countryComboBox";
-            this.countryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.countryComboBox.Size = new System.Drawing.Size(147, 21);
             this.countryComboBox.TabIndex = 9;
             // 
             // cityTextBox
@@ -319,7 +529,7 @@
             // 
             this.zipCodeTextBox.Location = new System.Drawing.Point(3, 47);
             this.zipCodeTextBox.Name = "zipCodeTextBox";
-            this.zipCodeTextBox.Size = new System.Drawing.Size(93, 20);
+            this.zipCodeTextBox.Size = new System.Drawing.Size(147, 20);
             this.zipCodeTextBox.TabIndex = 7;
             // 
             // streetTextBox
@@ -328,13 +538,6 @@
             this.streetTextBox.Name = "streetTextBox";
             this.streetTextBox.Size = new System.Drawing.Size(147, 20);
             this.streetTextBox.TabIndex = 6;
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Location = new System.Drawing.Point(3, 0);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(86, 20);
-            this.idTextBox.TabIndex = 3;
             // 
             // flowLayoutPanel2
             // 
@@ -390,14 +593,14 @@
             "Public"});
             this.governTypeComboBox.Location = new System.Drawing.Point(3, 29);
             this.governTypeComboBox.Name = "governTypeComboBox";
-            this.governTypeComboBox.Size = new System.Drawing.Size(109, 21);
+            this.governTypeComboBox.Size = new System.Drawing.Size(147, 21);
             this.governTypeComboBox.TabIndex = 5;
             // 
             // institutionNameTextBox
             // 
             this.institutionNameTextBox.Location = new System.Drawing.Point(3, 3);
             this.institutionNameTextBox.Name = "institutionNameTextBox";
-            this.institutionNameTextBox.Size = new System.Drawing.Size(135, 20);
+            this.institutionNameTextBox.Size = new System.Drawing.Size(147, 20);
             this.institutionNameTextBox.TabIndex = 3;
             // 
             // residentialContainer
@@ -441,14 +644,14 @@
             // 
             this.squareMeterBedroomTextBox.Location = new System.Drawing.Point(4, 27);
             this.squareMeterBedroomTextBox.Name = "squareMeterBedroomTextBox";
-            this.squareMeterBedroomTextBox.Size = new System.Drawing.Size(100, 20);
+            this.squareMeterBedroomTextBox.Size = new System.Drawing.Size(77, 20);
             this.squareMeterBedroomTextBox.TabIndex = 1;
             // 
             // noOfBedroomsControl
             // 
             this.noOfBedroomsControl.Location = new System.Drawing.Point(4, 4);
             this.noOfBedroomsControl.Name = "noOfBedroomsControl";
-            this.noOfBedroomsControl.Size = new System.Drawing.Size(44, 20);
+            this.noOfBedroomsControl.Size = new System.Drawing.Size(49, 20);
             this.noOfBedroomsControl.TabIndex = 0;
             // 
             // commercialContainer
@@ -481,7 +684,7 @@
             // 
             this.companyNameTextBox.Location = new System.Drawing.Point(3, 2);
             this.companyNameTextBox.Name = "companyNameTextBox";
-            this.companyNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.companyNameTextBox.Size = new System.Drawing.Size(147, 20);
             this.companyNameTextBox.TabIndex = 0;
             // 
             // hospitalContainer
@@ -514,7 +717,7 @@
             // 
             this.maxCapacityTextBox.Location = new System.Drawing.Point(3, 0);
             this.maxCapacityTextBox.Name = "maxCapacityTextBox";
-            this.maxCapacityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.maxCapacityTextBox.Size = new System.Drawing.Size(147, 20);
             this.maxCapacityTextBox.TabIndex = 0;
             // 
             // schoolContainer
@@ -528,7 +731,7 @@
             // 
             // schoolContainer.Panel2
             // 
-            this.schoolContainer.Panel2.Controls.Add(this.gradeLevelTextBox);
+            this.schoolContainer.Panel2.Controls.Add(this.gradeLevelComboBox);
             this.schoolContainer.Size = new System.Drawing.Size(335, 20);
             this.schoolContainer.SplitterDistance = 111;
             this.schoolContainer.TabIndex = 26;
@@ -543,12 +746,19 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Grade level";
             // 
-            // gradeLevelTextBox
+            // gradeLevelComboBox
             // 
-            this.gradeLevelTextBox.Location = new System.Drawing.Point(3, 0);
-            this.gradeLevelTextBox.Name = "gradeLevelTextBox";
-            this.gradeLevelTextBox.Size = new System.Drawing.Size(100, 20);
-            this.gradeLevelTextBox.TabIndex = 0;
+            this.gradeLevelComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "    Kindergarten",
+            "    Elementary",
+            "    Middle School",
+            "    High School",
+            "    College"});
+            this.gradeLevelComboBox.FormattingEnabled = true;
+            this.gradeLevelComboBox.Location = new System.Drawing.Point(3, -2);
+            this.gradeLevelComboBox.Name = "gradeLevelComboBox";
+            this.gradeLevelComboBox.Size = new System.Drawing.Size(147, 21);
+            this.gradeLevelComboBox.TabIndex = 0;
             // 
             // universityContainer
             // 
@@ -580,7 +790,7 @@
             // 
             this.noOfstudentsTextBox.Location = new System.Drawing.Point(3, 0);
             this.noOfstudentsTextBox.Name = "noOfstudentsTextBox";
-            this.noOfstudentsTextBox.Size = new System.Drawing.Size(100, 20);
+            this.noOfstudentsTextBox.Size = new System.Drawing.Size(147, 20);
             this.noOfstudentsTextBox.TabIndex = 0;
             // 
             // villaContainer
@@ -613,7 +823,7 @@
             // 
             this.gardenTextBox.Location = new System.Drawing.Point(3, 0);
             this.gardenTextBox.Name = "gardenTextBox";
-            this.gardenTextBox.Size = new System.Drawing.Size(100, 20);
+            this.gardenTextBox.Size = new System.Drawing.Size(77, 20);
             this.gardenTextBox.TabIndex = 0;
             // 
             // townHouseContainer
@@ -646,7 +856,7 @@
             // 
             this.associationTextBox.Location = new System.Drawing.Point(3, 0);
             this.associationTextBox.Name = "associationTextBox";
-            this.associationTextBox.Size = new System.Drawing.Size(100, 20);
+            this.associationTextBox.Size = new System.Drawing.Size(147, 20);
             this.associationTextBox.TabIndex = 0;
             // 
             // apartmentContainer
@@ -693,7 +903,7 @@
             // 
             // officeContainer.Panel2
             // 
-            this.officeContainer.Panel2.Controls.Add(this.textBox1);
+            this.officeContainer.Panel2.Controls.Add(this.noOfRoomsControl);
             this.officeContainer.Size = new System.Drawing.Size(335, 20);
             this.officeContainer.SplitterDistance = 111;
             this.officeContainer.TabIndex = 31;
@@ -708,12 +918,12 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "Number of rooms";
             // 
-            // textBox1
+            // noOfRoomsControl
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.noOfRoomsControl.Location = new System.Drawing.Point(3, 0);
+            this.noOfRoomsControl.Name = "noOfRoomsControl";
+            this.noOfRoomsControl.Size = new System.Drawing.Size(49, 20);
+            this.noOfRoomsControl.TabIndex = 34;
             // 
             // shopContainer
             // 
@@ -745,7 +955,7 @@
             // 
             this.retailGenreTextBox.Location = new System.Drawing.Point(3, 0);
             this.retailGenreTextBox.Name = "retailGenreTextBox";
-            this.retailGenreTextBox.Size = new System.Drawing.Size(100, 20);
+            this.retailGenreTextBox.Size = new System.Drawing.Size(147, 20);
             this.retailGenreTextBox.TabIndex = 0;
             // 
             // warehouseContainer
@@ -778,14 +988,39 @@
             // 
             this.squareMetersTextBox.Location = new System.Drawing.Point(3, 0);
             this.squareMetersTextBox.Name = "squareMetersTextBox";
-            this.squareMetersTextBox.Size = new System.Drawing.Size(100, 20);
+            this.squareMetersTextBox.Size = new System.Drawing.Size(77, 20);
             this.squareMetersTextBox.TabIndex = 0;
+            // 
+            // editEstateButton
+            // 
+            this.editEstateButton.Location = new System.Drawing.Point(103, 382);
+            this.editEstateButton.Name = "editEstateButton";
+            this.editEstateButton.Size = new System.Drawing.Size(75, 23);
+            this.editEstateButton.TabIndex = 34;
+            this.editEstateButton.Text = "Edit estate";
+            this.editEstateButton.UseVisualStyleBackColor = true;
+            this.editEstateButton.Visible = false;
+            this.editEstateButton.Click += new System.EventHandler(this.editEstateButton_Click);
+            // 
+            // clearButton
+            // 
+            this.clearButton.ForeColor = System.Drawing.Color.IndianRed;
+            this.clearButton.Location = new System.Drawing.Point(190, 382);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 35;
+            this.clearButton.Text = "Clear all";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Visible = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 463);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.editEstateButton);
             this.Controls.Add(this.warehouseContainer);
             this.Controls.Add(this.shopContainer);
             this.Controls.Add(this.officeContainer);
@@ -844,7 +1079,6 @@
             this.schoolContainer.Panel1.ResumeLayout(false);
             this.schoolContainer.Panel1.PerformLayout();
             this.schoolContainer.Panel2.ResumeLayout(false);
-            this.schoolContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolContainer)).EndInit();
             this.schoolContainer.ResumeLayout(false);
             this.universityContainer.Panel1.ResumeLayout(false);
@@ -874,9 +1108,9 @@
             this.officeContainer.Panel1.ResumeLayout(false);
             this.officeContainer.Panel1.PerformLayout();
             this.officeContainer.Panel2.ResumeLayout(false);
-            this.officeContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.officeContainer)).EndInit();
             this.officeContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.noOfRoomsControl)).EndInit();
             this.shopContainer.Panel1.ResumeLayout(false);
             this.shopContainer.Panel1.PerformLayout();
             this.shopContainer.Panel2.ResumeLayout(false);
@@ -913,7 +1147,6 @@
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.TextBox zipCodeTextBox;
         private System.Windows.Forms.TextBox streetTextBox;
-        private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.SplitContainer institutionContainer;
         private System.Windows.Forms.Label label3;
@@ -931,7 +1164,6 @@
         private System.Windows.Forms.SplitContainer hospitalContainer;
         private System.Windows.Forms.SplitContainer schoolContainer;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox gradeLevelTextBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox maxCapacityTextBox;
         private System.Windows.Forms.SplitContainer universityContainer;
@@ -948,13 +1180,17 @@
         private System.Windows.Forms.NumericUpDown floorControl;
         private System.Windows.Forms.SplitContainer officeContainer;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.SplitContainer shopContainer;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox retailGenreTextBox;
         private System.Windows.Forms.SplitContainer warehouseContainer;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox squareMetersTextBox;
+        private System.Windows.Forms.ComboBox gradeLevelComboBox;
+        private System.Windows.Forms.NumericUpDown noOfRoomsControl;
+        private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.Button editEstateButton;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 

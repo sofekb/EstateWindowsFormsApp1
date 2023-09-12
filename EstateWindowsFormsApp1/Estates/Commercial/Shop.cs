@@ -10,7 +10,7 @@ namespace EstateWindowsFormsApp1.Estates.Commercial
     {
         public string RetailGenre { get; set; }
 
-        public Shop(int id, Address address, Category category, LegalForm legalForm, 
+        public Shop(int id, Address address, string category, string legalForm, 
             string companyName, string retailGenre) 
             : base(id, address, category, legalForm, companyName)
         {

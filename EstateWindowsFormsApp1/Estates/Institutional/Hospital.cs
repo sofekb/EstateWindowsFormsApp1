@@ -10,7 +10,9 @@ namespace EstateWindowsFormsApp1.Estates.Institutional
     {
         public int MaxCapacity { get; set; }
 
-        public Hospital(int id, Address address, Category category, LegalForm legalForm, 
+        public Hospital() { }
+
+        public Hospital(int id, Address address, string category, string legalForm, 
             string name, int maxCapacity) 
             : base(id, address, category, legalForm, name)
         {
