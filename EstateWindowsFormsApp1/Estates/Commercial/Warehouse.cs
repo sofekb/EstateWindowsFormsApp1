@@ -10,11 +10,11 @@ namespace EstateWindowsFormsApp1.Estates.Commercial
     {
         public int SquareMeters { get; set; }
 
-        public Warehouse(int id, Address address, string category, string legalForm, 
-            string companyName, int squareMeters) 
-            : base(id, address, category, legalForm, companyName)
+        public Warehouse() { }
+
+        public override string ToString()
         {
-            SquareMeters = squareMeters;
+            return "Warehouse: " + "Id: " + Id.ToString() + " Street: " + EstateAddress.Street;
         }
     }
 }

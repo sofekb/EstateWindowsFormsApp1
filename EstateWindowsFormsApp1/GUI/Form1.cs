@@ -58,7 +58,6 @@ namespace EstateWindowsFormsApp1
                     break;
                 case "Commercial":
                     commercialContainer.Visible= true;
-                    buildingTypeComboBox.Items.Add("Office");
                     buildingTypeComboBox.Items.Add("Shop");
                     buildingTypeComboBox.Items.Add("Warehouse");
                     break;
@@ -93,9 +92,6 @@ namespace EstateWindowsFormsApp1
                 case "Apartment":
                     apartmentContainer.Visible = true;
                     break;
-                case "Office":
-                    officeContainer.Visible = true; 
-                    break;
                 case "Shop":
                     shopContainer.Visible = true;   
                     break;
@@ -128,7 +124,6 @@ namespace EstateWindowsFormsApp1
             villaContainer.Visible = false;
             townHouseContainer.Visible = false;
             apartmentContainer.Visible = false;
-            officeContainer.Visible = false;
             shopContainer.Visible = false;
             warehouseContainer.Visible = false;
         }
@@ -148,29 +143,33 @@ namespace EstateWindowsFormsApp1
                 case "School":
                     estate = new School();
                     break;
-                default:                        //skapades bara för att inte estate skulle vara unassigned
-                    estate = new Hospital();
-                    break;
-                /*case "University":             //bortkommenterat - behöver skapas default konstruktorer
+                case "University":
+                    estate = new University();
                     break;
                 case "Villa":
+                    estate = new Villa();
                     break;
                 case "Town house":
+                    estate = new TownHouse();
                     break;
                 case "Apartment":
-                    break;
-                case "Office":
+                    estate = new Apartment();
                     break;
                 case "Shop":
+                    estate = new Shop();
                     break;
                 case "Warehouse":
-                    break;*/
+                    estate = new Warehouse();
+                    break;
+                default:
+                    return;                               //vad gör return här?
             }
             guiController.CurrentEstate = estate;
             SetEstateProperties(estate, category);
             SetCategoryProperties(estate);
 
             idLabel.Text = estate.Id.ToString(); //prints the id onto the Form
+            addedEstatesLabel.Text = estate.ToString();
 
             addEstateButton.Visible = false;
             editEstateButton.Visible = true;
@@ -184,11 +183,11 @@ namespace EstateWindowsFormsApp1
             estate.LegalForm = legalFormComboBox.Text;
 
             //creating an Address-object and adding it to the estate
-            string street = streetTextBox.Text;
-            string zipCode = zipCodeTextBox.Text;
-            string city = cityTextBox.Text;
-            Countries country = (Countries)countryComboBox.SelectedItem;
-            Address address = new Address(street, zipCode, city, country);
+            Address address = new Address();
+            address.Street = streetTextBox.Text;
+            address.ZipCode = zipCodeTextBox.Text;
+            address.City = cityTextBox.Text;
+            address.Country = (Countries)countryComboBox.SelectedItem;
             estate.EstateAddress = address;
         }
 
@@ -233,6 +232,55 @@ namespace EstateWindowsFormsApp1
             estate.CompanyName = companyNameTextBox.Text;
         }
 
+        //setting the specific sub class properties
+        private void SetSubClassProperties(Estate estate)
+        {
+            switch (estate)
+            {
+                case Hospital hospital:
+                    int maxCapacity;
+                    string maxCapacityString = maxCapacityTextBox.Text;
+                    int.TryParse(maxCapacityString, out maxCapacity);
+                    hospital.MaxCapacity = maxCapacity;
+                    break;
+                case School school:
+                    school.GradeLevel = gradeLevelComboBox.Text;
+                    break;
+                case University university:
+                    int noOfStudents;
+                    string noOfStudentsString = noOfstudentsTextBox.Text;
+                    int.TryParse(noOfStudentsString, out noOfStudents);
+                    university.NumberOfStudents = noOfStudents;
+                    break;
+                case Villa villa:
+                    int gardenSquareMeter;
+                    string gardenSquareMeterString = gardenTextBox.Text;
+                    int.TryParse(gardenSquareMeterString, out gardenSquareMeter);
+                    villa.SquareMeter = gardenSquareMeter;
+                    if (villa is TownHouse)
+                    {
+                        TownHouse townHouse = (TownHouse)villa; //Type-casting to a TownHouse object
+                        townHouse.Association = associationTextBox.Text;
+                    }
+                    break;
+                case Apartment apartment:
+                    apartment.Floor = (int)floorControl.Value;
+                    break;
+                case Shop shop:
+                    shop.RetailGenre = retailGenreTextBox.Text;
+                    break;
+                case Warehouse warehouse:
+                    int squareMeters;
+                    string squareMetersString = squareMetersTextBox.Text;
+                    int.TryParse(squareMetersString, out squareMeters);
+                    warehouse.SquareMeters = squareMeters;
+                    break;
+                default:
+                                                        //exception ??
+                    break;
+                }
+            }
+
         //getting information from category container
         private void getCategoryInformation(string category)
         {
@@ -266,7 +314,15 @@ namespace EstateWindowsFormsApp1
         //updates the current estates to changed values
         private void editEstateButton_Click(object sender, EventArgs e)
         {
-          //  if (currentEstate is )
+            Estate estate = guiController.CurrentEstate;
+            SetEstateProperties(estate, estate.Category);
+            SetCategoryProperties(estate);
+            SetSubClassProperties(estate);
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

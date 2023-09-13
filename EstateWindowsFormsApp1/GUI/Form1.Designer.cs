@@ -81,9 +81,6 @@ namespace EstateWindowsFormsApp1
             this.apartmentContainer = new System.Windows.Forms.SplitContainer();
             this.label19 = new System.Windows.Forms.Label();
             this.floorControl = new System.Windows.Forms.NumericUpDown();
-            this.officeContainer = new System.Windows.Forms.SplitContainer();
-            this.label20 = new System.Windows.Forms.Label();
-            this.noOfRoomsControl = new System.Windows.Forms.NumericUpDown();
             this.shopContainer = new System.Windows.Forms.SplitContainer();
             this.label21 = new System.Windows.Forms.Label();
             this.retailGenreTextBox = new System.Windows.Forms.TextBox();
@@ -92,6 +89,9 @@ namespace EstateWindowsFormsApp1
             this.squareMetersTextBox = new System.Windows.Forms.TextBox();
             this.editEstateButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.addedEstatesLabel = new System.Windows.Forms.Label();
             this.buildingTypeContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estateContainer)).BeginInit();
             this.estateContainer.Panel1.SuspendLayout();
@@ -136,11 +136,6 @@ namespace EstateWindowsFormsApp1
             this.apartmentContainer.Panel2.SuspendLayout();
             this.apartmentContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.floorControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.officeContainer)).BeginInit();
-            this.officeContainer.Panel1.SuspendLayout();
-            this.officeContainer.Panel2.SuspendLayout();
-            this.officeContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.noOfRoomsControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shopContainer)).BeginInit();
             this.shopContainer.Panel1.SuspendLayout();
             this.shopContainer.Panel2.SuspendLayout();
@@ -149,6 +144,7 @@ namespace EstateWindowsFormsApp1
             this.warehouseContainer.Panel1.SuspendLayout();
             this.warehouseContainer.Panel2.SuspendLayout();
             this.warehouseContainer.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addEstateButton
@@ -319,200 +315,200 @@ namespace EstateWindowsFormsApp1
             // 
             // countryComboBox
             // 
-            this.countryComboBox.DataSource = new Countries[] {
-        Countries.Afghanistan,
-        Countries.Algeria,
-        Countries.Andorra,
-        Countries.Angola,
-        Countries.Antigua_and_Barbuda,
-        Countries.Argentina,
-        Countries.Armenia,
-        Countries.Australia,
-        Countries.Austria,
-        Countries.Azerbaijan,
-        Countries.Bahamas,
-        Countries.Bahrain,
-        Countries.Bangladesh,
-        Countries.Barbados,
-        Countries.Belarus,
-        Countries.Belgium,
-        Countries.Belize,
-        Countries.Benin,
-        Countries.Bhutan,
-        Countries.Bolivia,
-        Countries.Bosnia_and_Herzegovina,
-        Countries.Botswana,
-        Countries.Brazil,
-        Countries.Brunei,
-        Countries.Bulgaria,
-        Countries.Burkina_Faso,
-        Countries.Burundi,
-        Countries.Cambodia,
-        Countries.Cameroon,
-        Countries.Canada,
-        Countries.Cape_Verde,
-        Countries.Central_African_Republic,
-        Countries.Chad,
-        Countries.Chile,
-        Countries.China,
-        Countries.Colombia,
-        Countries.Comoros,
-        Countries.Congo,
-        Countries.Democratic_Republic_of_the_Congo,
-        Countries.Costa_Rica,
-        Countries.Côte_d_Ivoire,
-        Countries.Croatia,
-        Countries.Cuba,
-        Countries.Cyprus,
-        Countries.Czech_Republic,
-        Countries.Denmark,
-        Countries.Djibouti,
-        Countries.Dominica,
-        Countries.Dominican_Republic,
-        Countries.East_Timor_or_Timur,
-        Countries.Ecuador,
-        Countries.Egypt,
-        Countries.El_Salvador,
-        Countries.Equatorial_Guinea,
-        Countries.Eritrea,
-        Countries.Estonia,
-        Countries.Ethiopia,
-        Countries.Fiji,
-        Countries.Finland,
-        Countries.France,
-        Countries.Gabon,
-        Countries.Gambia,
-        Countries.Georgia,
-        Countries.Germany,
-        Countries.Ghana,
-        Countries.Greece,
-        Countries.Grenada,
-        Countries.Guatemala,
-        Countries.Guinea,
-        Countries.Guinea_Bissau,
-        Countries.Guyana,
-        Countries.Haiti,
-        Countries.Honduras,
-        Countries.Hungary,
-        Countries.Iceland,
-        Countries.India,
-        Countries.Indonesia,
-        Countries.Iran,
-        Countries.Iraq,
-        Countries.Ireland,
-        Countries.Israel,
-        Countries.Italy,
-        Countries.Jamaica,
-        Countries.Japan,
-        Countries.Jordan,
-        Countries.Kazakhstan,
-        Countries.Kenya,
-        Countries.Kiribati,
-        Countries.Korea_North,
-        Countries.Korea_South,
-        Countries.Kuwait,
-        Countries.Kyrgyzstan,
-        Countries.Laos,
-        Countries.Latvia,
-        Countries.Lebanon,
-        Countries.Lesotho,
-        Countries.Liberia,
-        Countries.Libya,
-        Countries.Liechtenstein,
-        Countries.Lithuania,
-        Countries.Luxembourg,
-        Countries.Macedonia,
-        Countries.Madagascar,
-        Countries.Malawi,
-        Countries.Malaysia,
-        Countries.Maldives,
-        Countries.Mali,
-        Countries.Malta,
-        Countries.Marshall_Islands,
-        Countries.Mauritania,
-        Countries.Mauritius,
-        Countries.Mexico,
-        Countries.Micronesia_Federated_States_of,
-        Countries.Moldova,
-        Countries.Monaco,
-        Countries.Mongolia,
-        Countries.Morocco,
-        Countries.Mozambique,
-        Countries.Myanmar,
-        Countries.Namibia,
-        Countries.Nauru,
-        Countries.Nepal,
-        Countries.Netherlands,
-        Countries.New_Zealand,
-        Countries.Nicaragua,
-        Countries.Niger,
-        Countries.Nigeria,
-        Countries.Norway,
-        Countries.Oman,
-        Countries.Pakistan,
-        Countries.Palau,
-        Countries.Panama,
-        Countries.Papua_New_Guinea,
-        Countries.Paraguay,
-        Countries.Peru,
-        Countries.Philippines,
-        Countries.Poland,
-        Countries.Portugal,
-        Countries.Qatar,
-        Countries.Romania,
-        Countries.Russia,
-        Countries.Rwanda,
-        Countries.Saint_Kitts_and_Nevis,
-        Countries.Saint_Lucia,
-        Countries.Saint_Vincent_and_The_Grenadines,
-        Countries.Samoa,
-        Countries.San_Marino,
-        Countries.Sao_Tome_and_Principe,
-        Countries.Saudi_Arabia,
-        Countries.Senegal,
-        Countries.Serbia_and_Montenegro,
-        Countries.Seychelles,
-        Countries.Sierra_Leone,
-        Countries.Singapore,
-        Countries.Slovakia,
-        Countries.Slovenia,
-        Countries.Solomon_Islands,
-        Countries.Somalia,
-        Countries.South_Africa,
-        Countries.Spain,
-        Countries.Sri_Lanka,
-        Countries.Sudan,
-        Countries.Suriname,
-        Countries.Swaziland,
-        Countries.Sverige,
-        Countries.Switzerland,
-        Countries.Syria,
-        Countries.Taiwan,
-        Countries.Tajikistan,
-        Countries.Tanzania,
-        Countries.Thailand,
-        Countries.Togo,
-        Countries.Tonga,
-        Countries.Trinidad_and_Tobago,
-        Countries.Tunisia,
-        Countries.Turkey,
-        Countries.Turkmenistan,
-        Countries.Tuvalu,
-        Countries.Uganda,
-        Countries.Ukraine,
-        Countries.United_Arab_Emirates,
-        Countries.United_Kingdom,
-        Countries.United_States_of_America,
-        Countries.Uruguay,
-        Countries.Uzbekistan,
-        Countries.Vanuatu,
-        Countries.Vatican_City,
-        Countries.Venezuela,
-        Countries.Vietnam,
-        Countries.Western_Sahara,
-        Countries.Yemen,
-        Countries.Zambia,
-        Countries.Zimbabwe};
+            this.countryComboBox.Items.AddRange(new object[] {
+            Countries.Afghanistan,
+            Countries.Algeria,
+            Countries.Andorra,
+            Countries.Angola,
+            Countries.Antigua_and_Barbuda,
+            Countries.Argentina,
+            Countries.Armenia,
+            Countries.Australia,
+            Countries.Austria,
+            Countries.Azerbaijan,
+            Countries.Bahamas,
+            Countries.Bahrain,
+            Countries.Bangladesh,
+            Countries.Barbados,
+            Countries.Belarus,
+            Countries.Belgium,
+            Countries.Belize,
+            Countries.Benin,
+            Countries.Bhutan,
+            Countries.Bolivia,
+            Countries.Bosnia_and_Herzegovina,
+            Countries.Botswana,
+            Countries.Brazil,
+            Countries.Brunei,
+            Countries.Bulgaria,
+            Countries.Burkina_Faso,
+            Countries.Burundi,
+            Countries.Cambodia,
+            Countries.Cameroon,
+            Countries.Canada,
+            Countries.Cape_Verde,
+            Countries.Central_African_Republic,
+            Countries.Chad,
+            Countries.Chile,
+            Countries.China,
+            Countries.Colombia,
+            Countries.Comoros,
+            Countries.Congo,
+            Countries.Democratic_Republic_of_the_Congo,
+            Countries.Costa_Rica,
+            Countries.Côte_d_Ivoire,
+            Countries.Croatia,
+            Countries.Cuba,
+            Countries.Cyprus,
+            Countries.Czech_Republic,
+            Countries.Denmark,
+            Countries.Djibouti,
+            Countries.Dominica,
+            Countries.Dominican_Republic,
+            Countries.East_Timor_or_Timur,
+            Countries.Ecuador,
+            Countries.Egypt,
+            Countries.El_Salvador,
+            Countries.Equatorial_Guinea,
+            Countries.Eritrea,
+            Countries.Estonia,
+            Countries.Ethiopia,
+            Countries.Fiji,
+            Countries.Finland,
+            Countries.France,
+            Countries.Gabon,
+            Countries.Gambia,
+            Countries.Georgia,
+            Countries.Germany,
+            Countries.Ghana,
+            Countries.Greece,
+            Countries.Grenada,
+            Countries.Guatemala,
+            Countries.Guinea,
+            Countries.Guinea_Bissau,
+            Countries.Guyana,
+            Countries.Haiti,
+            Countries.Honduras,
+            Countries.Hungary,
+            Countries.Iceland,
+            Countries.India,
+            Countries.Indonesia,
+            Countries.Iran,
+            Countries.Iraq,
+            Countries.Ireland,
+            Countries.Israel,
+            Countries.Italy,
+            Countries.Jamaica,
+            Countries.Japan,
+            Countries.Jordan,
+            Countries.Kazakhstan,
+            Countries.Kenya,
+            Countries.Kiribati,
+            Countries.Korea_North,
+            Countries.Korea_South,
+            Countries.Kuwait,
+            Countries.Kyrgyzstan,
+            Countries.Laos,
+            Countries.Latvia,
+            Countries.Lebanon,
+            Countries.Lesotho,
+            Countries.Liberia,
+            Countries.Libya,
+            Countries.Liechtenstein,
+            Countries.Lithuania,
+            Countries.Luxembourg,
+            Countries.Macedonia,
+            Countries.Madagascar,
+            Countries.Malawi,
+            Countries.Malaysia,
+            Countries.Maldives,
+            Countries.Mali,
+            Countries.Malta,
+            Countries.Marshall_Islands,
+            Countries.Mauritania,
+            Countries.Mauritius,
+            Countries.Mexico,
+            Countries.Micronesia_Federated_States_of,
+            Countries.Moldova,
+            Countries.Monaco,
+            Countries.Mongolia,
+            Countries.Morocco,
+            Countries.Mozambique,
+            Countries.Myanmar,
+            Countries.Namibia,
+            Countries.Nauru,
+            Countries.Nepal,
+            Countries.Netherlands,
+            Countries.New_Zealand,
+            Countries.Nicaragua,
+            Countries.Niger,
+            Countries.Nigeria,
+            Countries.Norway,
+            Countries.Oman,
+            Countries.Pakistan,
+            Countries.Palau,
+            Countries.Panama,
+            Countries.Papua_New_Guinea,
+            Countries.Paraguay,
+            Countries.Peru,
+            Countries.Philippines,
+            Countries.Poland,
+            Countries.Portugal,
+            Countries.Qatar,
+            Countries.Romania,
+            Countries.Russia,
+            Countries.Rwanda,
+            Countries.Saint_Kitts_and_Nevis,
+            Countries.Saint_Lucia,
+            Countries.Saint_Vincent_and_The_Grenadines,
+            Countries.Samoa,
+            Countries.San_Marino,
+            Countries.Sao_Tome_and_Principe,
+            Countries.Saudi_Arabia,
+            Countries.Senegal,
+            Countries.Serbia_and_Montenegro,
+            Countries.Seychelles,
+            Countries.Sierra_Leone,
+            Countries.Singapore,
+            Countries.Slovakia,
+            Countries.Slovenia,
+            Countries.Solomon_Islands,
+            Countries.Somalia,
+            Countries.South_Africa,
+            Countries.Spain,
+            Countries.Sri_Lanka,
+            Countries.Sudan,
+            Countries.Suriname,
+            Countries.Swaziland,
+            Countries.Sverige,
+            Countries.Switzerland,
+            Countries.Syria,
+            Countries.Taiwan,
+            Countries.Tajikistan,
+            Countries.Tanzania,
+            Countries.Thailand,
+            Countries.Togo,
+            Countries.Tonga,
+            Countries.Trinidad_and_Tobago,
+            Countries.Tunisia,
+            Countries.Turkey,
+            Countries.Turkmenistan,
+            Countries.Tuvalu,
+            Countries.Uganda,
+            Countries.Ukraine,
+            Countries.United_Arab_Emirates,
+            Countries.United_Kingdom,
+            Countries.United_States_of_America,
+            Countries.Uruguay,
+            Countries.Uzbekistan,
+            Countries.Vanuatu,
+            Countries.Vatican_City,
+            Countries.Venezuela,
+            Countries.Vietnam,
+            Countries.Western_Sahara,
+            Countries.Yemen,
+            Countries.Zambia,
+            Countries.Zimbabwe});
             this.countryComboBox.Location = new System.Drawing.Point(4, 94);
             this.countryComboBox.Name = "countryComboBox";
             this.countryComboBox.Size = new System.Drawing.Size(147, 21);
@@ -892,42 +888,9 @@ namespace EstateWindowsFormsApp1
             this.floorControl.Size = new System.Drawing.Size(49, 20);
             this.floorControl.TabIndex = 0;
             // 
-            // officeContainer
-            // 
-            this.officeContainer.Location = new System.Drawing.Point(334, 204);
-            this.officeContainer.Name = "officeContainer";
-            // 
-            // officeContainer.Panel1
-            // 
-            this.officeContainer.Panel1.Controls.Add(this.label20);
-            // 
-            // officeContainer.Panel2
-            // 
-            this.officeContainer.Panel2.Controls.Add(this.noOfRoomsControl);
-            this.officeContainer.Size = new System.Drawing.Size(335, 20);
-            this.officeContainer.SplitterDistance = 111;
-            this.officeContainer.TabIndex = 31;
-            this.officeContainer.Visible = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 7);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(87, 13);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Number of rooms";
-            // 
-            // noOfRoomsControl
-            // 
-            this.noOfRoomsControl.Location = new System.Drawing.Point(3, 0);
-            this.noOfRoomsControl.Name = "noOfRoomsControl";
-            this.noOfRoomsControl.Size = new System.Drawing.Size(49, 20);
-            this.noOfRoomsControl.TabIndex = 34;
-            // 
             // shopContainer
             // 
-            this.shopContainer.Location = new System.Drawing.Point(334, 227);
+            this.shopContainer.Location = new System.Drawing.Point(334, 200);
             this.shopContainer.Name = "shopContainer";
             // 
             // shopContainer.Panel1
@@ -960,7 +923,7 @@ namespace EstateWindowsFormsApp1
             // 
             // warehouseContainer
             // 
-            this.warehouseContainer.Location = new System.Drawing.Point(334, 250);
+            this.warehouseContainer.Location = new System.Drawing.Point(334, 223);
             this.warehouseContainer.Name = "warehouseContainer";
             // 
             // warehouseContainer.Panel1
@@ -1014,16 +977,43 @@ namespace EstateWindowsFormsApp1
             this.clearButton.Visible = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(3, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(78, 13);
+            this.label23.TabIndex = 36;
+            this.label23.Text = "Added estates:";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label23);
+            this.flowLayoutPanel1.Controls.Add(this.addedEstatesLabel);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(334, 322);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(322, 98);
+            this.flowLayoutPanel1.TabIndex = 37;
+            // 
+            // addedEstatesLabel
+            // 
+            this.addedEstatesLabel.AutoSize = true;
+            this.addedEstatesLabel.Location = new System.Drawing.Point(87, 0);
+            this.addedEstatesLabel.Name = "addedEstatesLabel";
+            this.addedEstatesLabel.Size = new System.Drawing.Size(0, 13);
+            this.addedEstatesLabel.TabIndex = 37;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 463);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.editEstateButton);
             this.Controls.Add(this.warehouseContainer);
             this.Controls.Add(this.shopContainer);
-            this.Controls.Add(this.officeContainer);
             this.Controls.Add(this.apartmentContainer);
             this.Controls.Add(this.townHouseContainer);
             this.Controls.Add(this.villaContainer);
@@ -1105,12 +1095,6 @@ namespace EstateWindowsFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.apartmentContainer)).EndInit();
             this.apartmentContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.floorControl)).EndInit();
-            this.officeContainer.Panel1.ResumeLayout(false);
-            this.officeContainer.Panel1.PerformLayout();
-            this.officeContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.officeContainer)).EndInit();
-            this.officeContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.noOfRoomsControl)).EndInit();
             this.shopContainer.Panel1.ResumeLayout(false);
             this.shopContainer.Panel1.PerformLayout();
             this.shopContainer.Panel2.ResumeLayout(false);
@@ -1123,6 +1107,8 @@ namespace EstateWindowsFormsApp1
             this.warehouseContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseContainer)).EndInit();
             this.warehouseContainer.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1178,8 +1164,6 @@ namespace EstateWindowsFormsApp1
         private System.Windows.Forms.SplitContainer apartmentContainer;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.NumericUpDown floorControl;
-        private System.Windows.Forms.SplitContainer officeContainer;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.SplitContainer shopContainer;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox retailGenreTextBox;
@@ -1187,10 +1171,12 @@ namespace EstateWindowsFormsApp1
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox squareMetersTextBox;
         private System.Windows.Forms.ComboBox gradeLevelComboBox;
-        private System.Windows.Forms.NumericUpDown noOfRoomsControl;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Button editEstateButton;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label addedEstatesLabel;
     }
 }
 

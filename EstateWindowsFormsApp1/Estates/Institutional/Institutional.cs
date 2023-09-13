@@ -13,13 +13,5 @@ namespace EstateWindowsFormsApp1.Estates.Institutional
 
         public Institutional() { }
 
-        //constructor (GovernType is not mandatory)
-        public Institutional (int id, Address address, string category, string legalForm, string name)
-            : base (id, address, category, legalForm)
-        {
-            Name = name;
-        }
-
-
     }
 }

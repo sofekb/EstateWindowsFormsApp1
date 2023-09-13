@@ -10,11 +10,11 @@ namespace EstateWindowsFormsApp1.Estates.Residential
     {
         public int SquareMeterGarden { get; set; }
 
-        public Villa(int id, Address address, string category, string legalForm, 
-            int bedrooms, int squareMeter, int squareMeterGarden) 
-            : base(id, address, category, legalForm, bedrooms, squareMeter)
+        public Villa() { }
+
+        public override string ToString()
         {
-            SquareMeterGarden = squareMeterGarden;
+            return "Villa: " + "Id: " + Id.ToString() + " Street: " + EstateAddress.Street;
         }
     }
 }

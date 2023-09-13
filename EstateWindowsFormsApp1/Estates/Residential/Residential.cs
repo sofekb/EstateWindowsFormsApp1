@@ -11,12 +11,7 @@ namespace EstateWindowsFormsApp1.Estates.Residential
         public int Bedrooms { get; set; }
         public int SquareMeter { get; set; }
 
-        public Residential(int id, Address address, string category, string legalForm,
-            int bedrooms, int squareMeter) 
-            : base(id, address, category, legalForm)
-        {
-            Bedrooms = bedrooms;
-            SquareMeter = squareMeter;
-        }
+        public Residential() { }
+
     }
 }

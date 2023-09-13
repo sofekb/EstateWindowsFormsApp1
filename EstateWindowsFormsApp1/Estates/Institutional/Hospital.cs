@@ -12,11 +12,10 @@ namespace EstateWindowsFormsApp1.Estates.Institutional
 
         public Hospital() { }
 
-        public Hospital(int id, Address address, string category, string legalForm, 
-            string name, int maxCapacity) 
-            : base(id, address, category, legalForm, name)
+        public override string ToString()
         {
-            MaxCapacity = maxCapacity;
+            return "Hospital: " + "Id: " + Id.ToString() + " Street: " + EstateAddress.Street;
         }
+
     }
 }

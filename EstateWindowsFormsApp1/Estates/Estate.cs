@@ -19,13 +19,7 @@ namespace EstateWindowsFormsApp1.Estates
             Id = ++lastId;
         }
 
-        public Estate(int id, Address address, string category, string legalForm)
-        {
-            Id = id;
-            EstateAddress = address;
-            Category = category;
-            LegalForm = legalForm;
-        }
+        //public abstract override string ToString();
 
     }
 }

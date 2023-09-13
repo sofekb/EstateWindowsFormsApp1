@@ -47,9 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Estates\Address.cs" />
-    <Compile Include="Estates\Categories.cs" />
     <Compile Include="Estates\Commercial\Commercial.cs" />
-    <Compile Include="Estates\Commercial\Office.cs" />
     <Compile Include="Estates\Commercial\Shop.cs" />
     <Compile Include="Estates\Commercial\Warehouse.cs" />
     <Compile Include="Estates\Countries.cs" />
@@ -59,7 +57,6 @@
     <Compile Include="Estates\Institutional\Institutional.cs" />
     <Compile Include="Estates\Institutional\School.cs" />
     <Compile Include="Estates\Institutional\University.cs" />
-    <Compile Include="Estates\LegalForm.cs" />
     <Compile Include="Estates\Residential\Apartment.cs" />
     <Compile Include="Estates\Residential\Residential.cs" />
     <Compile Include="Estates\Residential\TownHouse.cs" />

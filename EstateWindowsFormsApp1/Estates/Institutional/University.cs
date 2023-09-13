@@ -10,11 +10,11 @@ namespace EstateWindowsFormsApp1.Estates.Institutional
     {
         public int NumberOfStudents;
 
-        public University(int id, Address address, string category, string legalForm, 
-            string name, int numberOfStudents) 
-            : base(id, address, category, legalForm, name)
+        public University() { }
+
+        public override string ToString()
         {
-            NumberOfStudents = numberOfStudents;
+            return "University: " + "Id: " + Id.ToString() + " Street: " + EstateAddress.Street;
         }
     }
 }

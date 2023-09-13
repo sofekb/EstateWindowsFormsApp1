@@ -12,13 +12,9 @@ namespace EstateWindowsFormsApp1.Estates.Institutional
 
         public School() { }
 
-        public School(int id, Address address, string category, string legalForm, 
-            string name, string gradeLevel) 
-            : base(id, address, category, legalForm, name)
+        public override string ToString()
         {
-            GradeLevel = gradeLevel;
+            return "School: " + "Id: " + Id.ToString() + " Street: " + EstateAddress.Street;
         }
-
-     
     }
 }
