@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.AxHost;
 
 namespace EstateWindowsFormsApp1
 {
@@ -31,7 +33,7 @@ namespace EstateWindowsFormsApp1
 
 
         //controls which elements are visible and populating buildingTypeComboBox depending on category
-        private void visibleCategoryElements()
+        private void EnabledCategoryElements()
         {
             buildingTypeComboBox.Items.Clear();
             buildingTypeComboBox.Text = string.Empty; //empties the comboBox from the previous choice
@@ -106,7 +108,7 @@ namespace EstateWindowsFormsApp1
         {
             estateContainer.Visible = true;
             buildingTypeComboBox.Items.Clear(); 
-            visibleCategoryElements();
+            EnabledCategoryElements();
         }
 
         private void buildingTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,10 +133,20 @@ namespace EstateWindowsFormsApp1
         //when user clicks on "Add estate"
         private void addEstateButton_Click(object sender, EventArgs e)
         {
+            if (ValidateInput())
+                AddEstateObject();
+            else
+                MessageBox.Show("Fill in the required fields: \n" + "Id, Street, Zip code, City, Country & Legal form");    
+        }
+
+        //creating an object
+        private void AddEstateObject()
+        {
             Estate estate;
 
             string category = categoryComboBox.Text;
             string buildingType = buildingTypeComboBox.Text;
+
             switch (buildingType)
             {
                 case "Hospital":
@@ -169,11 +181,9 @@ namespace EstateWindowsFormsApp1
             SetCategoryProperties(estate);
 
             idLabel.Text = estate.Id.ToString(); //prints the id onto the Form
-            addedEstatesLabel.Text = estate.ToString();
 
             addEstateButton.Visible = false;
-            editEstateButton.Visible = true;
-            clearButton.Visible = true;
+            editEstatePanel.Visible = true;
         }
 
         //setting the estate properties from the estate container
@@ -324,5 +334,42 @@ namespace EstateWindowsFormsApp1
         {
 
         }
+
+        //uploading and displaying an image
+        private void addImageButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Bildfiler (*.jpg; *.jpeg; *.png; *.gif)|*.jpg; *.jpeg; *.png; *.gif|Alla filer (*.*)|*.*";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Get the chosen file
+                    string selectedImagePath = openFileDialog.FileName;
+
+                    pictureBox.Image = Image.FromFile(selectedImagePath);
+                }
+            }
+        }
+
+        //raderar objektet
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            guiController.CurrentEstate = null;
+            this.InitializeComponent();
+        }
+
+        //validate input. Only the estate fields are mandatory
+        private bool ValidateInput()
+        {
+            bool isValid = (!string.IsNullOrEmpty(streetTextBox.Text) &
+                (!string.IsNullOrEmpty(zipCodeTextBox.Text)) &
+                (!string.IsNullOrEmpty(cityTextBox.Text)) &
+                (!string.IsNullOrEmpty(countryComboBox.Text)) &
+                (!string.IsNullOrEmpty(legalFormComboBox.Text)));
+            return isValid;
+        }
+
     }
 }

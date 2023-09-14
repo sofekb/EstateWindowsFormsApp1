@@ -89,9 +89,11 @@ namespace EstateWindowsFormsApp1
             this.squareMetersTextBox = new System.Windows.Forms.TextBox();
             this.editEstateButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.addedEstatesLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.addImageButton = new System.Windows.Forms.Button();
+            this.editEstatePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.buildingTypeContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estateContainer)).BeginInit();
             this.estateContainer.Panel1.SuspendLayout();
@@ -144,12 +146,13 @@ namespace EstateWindowsFormsApp1
             this.warehouseContainer.Panel1.SuspendLayout();
             this.warehouseContainer.Panel2.SuspendLayout();
             this.warehouseContainer.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.editEstatePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // addEstateButton
             // 
-            this.addEstateButton.Location = new System.Drawing.Point(12, 382);
+            this.addEstateButton.Location = new System.Drawing.Point(12, 384);
             this.addEstateButton.Name = "addEstateButton";
             this.addEstateButton.Size = new System.Drawing.Size(75, 23);
             this.addEstateButton.TabIndex = 0;
@@ -956,62 +959,78 @@ namespace EstateWindowsFormsApp1
             // 
             // editEstateButton
             // 
-            this.editEstateButton.Location = new System.Drawing.Point(103, 382);
+            this.editEstateButton.Location = new System.Drawing.Point(3, 3);
             this.editEstateButton.Name = "editEstateButton";
             this.editEstateButton.Size = new System.Drawing.Size(75, 23);
             this.editEstateButton.TabIndex = 34;
             this.editEstateButton.Text = "Edit estate";
             this.editEstateButton.UseVisualStyleBackColor = true;
-            this.editEstateButton.Visible = false;
             this.editEstateButton.Click += new System.EventHandler(this.editEstateButton_Click);
             // 
             // clearButton
             // 
-            this.clearButton.ForeColor = System.Drawing.Color.IndianRed;
-            this.clearButton.Location = new System.Drawing.Point(190, 382);
+            this.clearButton.ForeColor = System.Drawing.Color.DimGray;
+            this.clearButton.Location = new System.Drawing.Point(3, 32);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 35;
             this.clearButton.Text = "Clear all";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Visible = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
-            // label23
+            // button1
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(78, 13);
-            this.label23.TabIndex = 36;
-            this.label23.Text = "Added estates:";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(84, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 23);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Delete estate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // flowLayoutPanel1
+            // pictureBox
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label23);
-            this.flowLayoutPanel1.Controls.Add(this.addedEstatesLabel);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(334, 322);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(322, 98);
-            this.flowLayoutPanel1.TabIndex = 37;
+            this.pictureBox.Location = new System.Drawing.Point(334, 264);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(265, 170);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 39;
+            this.pictureBox.TabStop = false;
             // 
-            // addedEstatesLabel
+            // openFileDialog1
             // 
-            this.addedEstatesLabel.AutoSize = true;
-            this.addedEstatesLabel.Location = new System.Drawing.Point(87, 0);
-            this.addedEstatesLabel.Name = "addedEstatesLabel";
-            this.addedEstatesLabel.Size = new System.Drawing.Size(0, 13);
-            this.addedEstatesLabel.TabIndex = 37;
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // addImageButton
+            // 
+            this.addImageButton.Location = new System.Drawing.Point(84, 3);
+            this.addImageButton.Name = "addImageButton";
+            this.addImageButton.Size = new System.Drawing.Size(75, 23);
+            this.addImageButton.TabIndex = 40;
+            this.addImageButton.Text = "Add image";
+            this.addImageButton.UseVisualStyleBackColor = true;
+            this.addImageButton.Click += new System.EventHandler(this.addImageButton_Click);
+            // 
+            // editEstatePanel
+            // 
+            this.editEstatePanel.Controls.Add(this.editEstateButton);
+            this.editEstatePanel.Controls.Add(this.addImageButton);
+            this.editEstatePanel.Controls.Add(this.clearButton);
+            this.editEstatePanel.Controls.Add(this.button1);
+            this.editEstatePanel.Location = new System.Drawing.Point(110, 382);
+            this.editEstatePanel.Name = "editEstatePanel";
+            this.editEstatePanel.Size = new System.Drawing.Size(200, 100);
+            this.editEstatePanel.TabIndex = 41;
+            this.editEstatePanel.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 463);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.editEstateButton);
+            this.Controls.Add(this.editEstatePanel);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.warehouseContainer);
             this.Controls.Add(this.shopContainer);
             this.Controls.Add(this.apartmentContainer);
@@ -1107,8 +1126,8 @@ namespace EstateWindowsFormsApp1
             this.warehouseContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseContainer)).EndInit();
             this.warehouseContainer.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.editEstatePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1174,9 +1193,11 @@ namespace EstateWindowsFormsApp1
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Button editEstateButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label addedEstatesLabel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button addImageButton;
+        private System.Windows.Forms.FlowLayoutPanel editEstatePanel;
     }
 }
 
