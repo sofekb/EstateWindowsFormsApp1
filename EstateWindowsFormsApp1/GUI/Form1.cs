@@ -1,4 +1,6 @@
-﻿using EstateWindowsFormsApp1.Estates;
+﻿//Sofia Ekberg Sept 2023
+
+using EstateWindowsFormsApp1.Estates;
 using EstateWindowsFormsApp1.Estates.Commercial;
 using EstateWindowsFormsApp1.Estates.Institutional;
 using EstateWindowsFormsApp1.Estates.Residential;
@@ -17,32 +19,43 @@ using static System.Windows.Forms.AxHost;
 
 namespace EstateWindowsFormsApp1
 {
+    /*
+     * The only Form class in the project. 
+     * Contains methods for input and output.
+    */
     public partial class Form1 : Form
     {
-        GUIController guiController = new GUIController();
+        GUIController guiController = new GUIController(); 
+
+        //creating and initializing the form
         public Form1()
         {
             InitializeComponent();
            
         }
 
+        //loading the form in the .Designer
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-
-        //controls which elements are visible and populating buildingTypeComboBox depending on category
-        private void EnabledCategoryElements()
+        //controls which elements are visible depending on category
+        private void VisibleCategoryElements()
         {
             buildingTypeComboBox.Items.Clear();
             buildingTypeComboBox.Text = string.Empty; //empties the comboBox from the previous choice
-            emptyBuildingContainers();
+            HideBuildingContainers();
             institutionContainer.Visible = false;
             residentialContainer.Visible = false;
             commercialContainer.Visible = false;
             buildingTypeContainer.Visible = true;
+            PopulateBuildingTypeComboBox();
+        }
 
+        //populating buildingTypeComboBox depending on category
+        private void PopulateBuildingTypeComboBox()
+        {
             string category = categoryComboBox.Text;
             switch (category)
             {
@@ -59,18 +72,17 @@ namespace EstateWindowsFormsApp1
                     buildingTypeComboBox.Items.Add("Town house");
                     break;
                 case "Commercial":
-                    commercialContainer.Visible= true;
+                    commercialContainer.Visible = true;
                     buildingTypeComboBox.Items.Add("Shop");
                     buildingTypeComboBox.Items.Add("Warehouse");
                     break;
             }
-
         }
 
-        //controls whoch elements are visible depending on building type
+        //controls which elements are visible depending on building type
         private void visibleBuildingTypeElements()
         {
-            emptyBuildingContainers();
+            HideBuildingContainers();
 
             string buildingType = buildingTypeComboBox.Text;
             switch (buildingType)
@@ -103,22 +115,8 @@ namespace EstateWindowsFormsApp1
             }
         }
 
-        //occur when the user chooses a category
-        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            estateContainer.Visible = true;
-            buildingTypeComboBox.Items.Clear(); 
-            EnabledCategoryElements();
-        }
-
-        private void buildingTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            visibleBuildingTypeElements();
-            addEstateButton.Visible = true;
-        }
-
-        //empties building-specific containers
-        private void emptyBuildingContainers()
+        //sets all building containers to non-visible
+        private void HideBuildingContainers()
         {
             hospitalContainer.Visible = false;
             schoolContainer.Visible = false;
@@ -128,15 +126,6 @@ namespace EstateWindowsFormsApp1
             apartmentContainer.Visible = false;
             shopContainer.Visible = false;
             warehouseContainer.Visible = false;
-        }
-
-        //when user clicks on "Add estate"
-        private void addEstateButton_Click(object sender, EventArgs e)
-        {
-            if (ValidateInput())
-                AddEstateObject();
-            else
-                MessageBox.Show("Fill in the required fields: \n" + "Id, Street, Zip code, City, Country & Legal form");    
         }
 
         //creating an object
@@ -174,7 +163,8 @@ namespace EstateWindowsFormsApp1
                     estate = new Warehouse();
                     break;
                 default:
-                    return;                               //vad gör return här?
+                    MessageBox.Show("Select a type of building");
+                    return;                               
             }
             guiController.CurrentEstate = estate;
             SetEstateProperties(estate, category);
@@ -212,7 +202,7 @@ namespace EstateWindowsFormsApp1
             {
                 SetResidentialProperties((Residential)estate);
             }
-            else if(estate is Commercial)
+            else if (estate is Commercial)
             {
                 SetCommercialProperties((Commercial)estate);
             }
@@ -286,10 +276,10 @@ namespace EstateWindowsFormsApp1
                     warehouse.SquareMeters = squareMeters;
                     break;
                 default:
-                                                        //exception ??
+                    //exception ??
                     break;
-                }
             }
+        }
 
         //getting information from category container
         private void getCategoryInformation(string category)
@@ -312,6 +302,29 @@ namespace EstateWindowsFormsApp1
             }
         }
 
+        //occur when the user chooses a category
+        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            estateContainer.Visible = true;
+            buildingTypeComboBox.Items.Clear(); //clear the ComboBox from previous input
+            VisibleCategoryElements();
+        }
+
+        //occur when the use chooses a building type
+        private void buildingTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            visibleBuildingTypeElements();
+            addEstateButton.Visible = true;
+        }
+
+        //when user clicks on "Add estate"
+        private void addEstateButton_Click(object sender, EventArgs e)
+        {
+            if (ValidateInput())
+                AddEstateObject();
+            else
+                MessageBox.Show("Fill in the required fields: \n" + "Id, Street, Zip code, City, Country & Legal form");    
+        }
 
         //clears the Form from input
         private void clearButton_Click(object sender, EventArgs e)
