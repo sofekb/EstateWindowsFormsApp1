@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//Sofia Ekberg Sept 2023
 namespace EstateWindowsFormsApp1.Estates.Residential
 {
+    //concrete subclass (and also base class to TownHouse)
     public class Villa : Residential
     {
         public int SquareMeterGarden { get; set; }

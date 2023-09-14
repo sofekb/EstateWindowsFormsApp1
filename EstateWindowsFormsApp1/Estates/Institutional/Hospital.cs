@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//Sofia Ekberg Sept 2023
 
 namespace EstateWindowsFormsApp1.Estates.Institutional
 {
+    //concrete sub class
     public class Hospital : Institutional
     {
         public int MaxCapacity { get; set; }

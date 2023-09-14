@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//Sofia Ekberg Sept 2023
 
 namespace EstateWindowsFormsApp1.Estates.Residential
 {
+    //concrete sub class
     public class Apartment : Residential
     {
         public int Floor { get; set; }

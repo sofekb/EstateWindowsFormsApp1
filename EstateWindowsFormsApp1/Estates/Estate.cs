@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//Sofia Ekberg Sept 2023
 namespace EstateWindowsFormsApp1.Estates
 {
+    //base class for all types of estates
     public abstract class Estate : IEstate
     {
         private static int lastId = 0;  //static counter for id
@@ -18,8 +14,6 @@ namespace EstateWindowsFormsApp1.Estates
         {
             Id = ++lastId;
         }
-
-        //public abstract override string ToString();
 
     }
 }

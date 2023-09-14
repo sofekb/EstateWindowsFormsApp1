@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//Sofia Ekberg Sept 2023
 namespace EstateWindowsFormsApp1.Estates.Residential
 {
+    //abstract base class to all residential concrete classes
     public abstract class Residential : Estate
     {
         public int Bedrooms { get; set; }

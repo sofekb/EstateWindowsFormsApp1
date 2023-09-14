@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//Sofia Ekberg Sept 2023
 namespace EstateWindowsFormsApp1.Estates
 {
+    //is a Property in all estate-objects
     public class Address
     {
         public string Street { get; set; }

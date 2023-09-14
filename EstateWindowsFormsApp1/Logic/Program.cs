@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿//Sofia Ekberg Sept 2023
+using System;
 using System.Windows.Forms;
 
 namespace EstateWindowsFormsApp1

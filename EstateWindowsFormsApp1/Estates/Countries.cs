@@ -1,11 +1,8 @@
 ﻿//Farid Naisan
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 /// <summary>
 ///The countries of the world.
 /// </summary>
+/// Used for the Address class
 public enum Countries
 {
     Afghanistan,

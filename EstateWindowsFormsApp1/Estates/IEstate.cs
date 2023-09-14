@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//Sofia Ekberg Sept 2023
 namespace EstateWindowsFormsApp1.Estates
 {
+    //stating the properties that must be implemented for each estate
     public interface IEstate
     {
         int Id { get; set; }

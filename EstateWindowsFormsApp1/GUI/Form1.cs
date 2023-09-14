@@ -191,45 +191,27 @@ namespace EstateWindowsFormsApp1
             estate.EstateAddress = address;
         }
 
-        //calling the correct category properties setting method depending on category
+        //setting the common properties depending on category
         private void SetCategoryProperties(Estate estate)
         {
-            if (estate is Institutional)
+            if (estate is Institutional institutionalEstate)
             {
-                SetInstitutionalProperties((Institutional)estate);
+                institutionalEstate.Name = institutionNameTextBox.Text;
+                institutionalEstate.GovernType = governTypeComboBox.Text;
             }
-            else if (estate is Residential)
+            else if (estate is Residential residentialEstate)
             {
-                SetResidentialProperties((Residential)estate);
+                residentialEstate.Bedrooms = (int)noOfBedroomsControl.Value;
+                string squareMeterString = squareMeterBedroomTextBox.Text;
+                int squareMeter;
+                int.TryParse(squareMeterString, out squareMeter); //kolla så det är rätt format
+                residentialEstate.SquareMeter = squareMeter;
+                Console.WriteLine(residentialEstate.SquareMeter);
             }
-            else if (estate is Commercial)
+            else if (estate is Commercial commercialEstate)
             {
-                SetCommercialProperties((Commercial)estate);
+                commercialEstate.CompanyName = companyNameTextBox.Text;
             }
-        }
-
-
-        //setting the properties for an Institutional object form the institutionContainer
-        private void SetInstitutionalProperties(Institutional estate)
-        {
-            estate.Name = institutionNameTextBox.Text;
-            estate.GovernType = governTypeComboBox.Text;
-        }
-
-        //setting the properties for a Residential object from the residentialContainer
-        private void SetResidentialProperties(Residential estate)
-        {
-            estate.Bedrooms = (int)noOfBedroomsControl.Value;
-            string squareMeterString = squareMeterBedroomTextBox.Text;
-            int squareMeter;
-            int.TryParse(squareMeterString, out squareMeter); //kolla så det är rätt format
-            estate.SquareMeter = squareMeter;
-        }
-
-        //setting the properties for a Commercial object from the commercialContainer
-        private void SetCommercialProperties(Commercial estate)
-        {
-            estate.CompanyName = companyNameTextBox.Text;
         }
 
         //setting the specific sub class properties
@@ -276,30 +258,19 @@ namespace EstateWindowsFormsApp1
                     warehouse.SquareMeters = squareMeters;
                     break;
                 default:
-                    //exception ??
                     break;
             }
         }
 
-        //getting information from category container
-        private void getCategoryInformation(string category)
+        //validate input. Only the estate fields are mandatory
+        private bool ValidateInput()
         {
-            switch (category)
-            {
-                case "Institutional":
-                    string institutionName = institutionNameTextBox.Text;
-                    string governType = governTypeComboBox.Text; //behandla annourlunda pga Enum?
-                    break;
-                case "Residential":
-                    decimal numberOfBedrooms = noOfBedroomsControl.Value;
-                    string squareMeterString = squareMeterBedroomTextBox.Text;
-                    int squareMeter;
-                    int.TryParse(squareMeterString, out squareMeter); //omvandlar till int - inputFormat-kontroll?
-                    break;
-                case "Commercial":
-                    string companyName = companyNameTextBox.Text;
-                    break;
-            }
+            bool isValid = (!string.IsNullOrEmpty(streetTextBox.Text) &
+                (!string.IsNullOrEmpty(zipCodeTextBox.Text)) &
+                (!string.IsNullOrEmpty(cityTextBox.Text)) &
+                (!string.IsNullOrEmpty(countryComboBox.Text)) &
+                (!string.IsNullOrEmpty(legalFormComboBox.Text)));
+            return isValid;
         }
 
         //occur when the user chooses a category
@@ -321,9 +292,13 @@ namespace EstateWindowsFormsApp1
         private void addEstateButton_Click(object sender, EventArgs e)
         {
             if (ValidateInput())
+                {
                 AddEstateObject();
+                MessageBox.Show("Estate added! \n" + guiController.CurrentEstate.ToString());
+                }
             else
-                MessageBox.Show("Fill in the required fields: \n" + "Id, Street, Zip code, City, Country & Legal form");    
+                MessageBox.Show("Fill in the required fields: \n"
+                    + "Id, Street, Zip code, City, Country & Legal form");    
         }
 
         //clears the Form from input
@@ -341,11 +316,7 @@ namespace EstateWindowsFormsApp1
             SetEstateProperties(estate, estate.Category);
             SetCategoryProperties(estate);
             SetSubClassProperties(estate);
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("Estate edited!");
         }
 
         //uploading and displaying an image
@@ -365,24 +336,13 @@ namespace EstateWindowsFormsApp1
             }
         }
 
-        //raderar objektet
-        private void button1_Click(object sender, EventArgs e)
+        //deletes current object
+        private void deleteButton_Click(object sender, EventArgs e)
         {
             this.Controls.Clear();
             guiController.CurrentEstate = null;
             this.InitializeComponent();
+            MessageBox.Show("Estate deleted!");
         }
-
-        //validate input. Only the estate fields are mandatory
-        private bool ValidateInput()
-        {
-            bool isValid = (!string.IsNullOrEmpty(streetTextBox.Text) &
-                (!string.IsNullOrEmpty(zipCodeTextBox.Text)) &
-                (!string.IsNullOrEmpty(cityTextBox.Text)) &
-                (!string.IsNullOrEmpty(countryComboBox.Text)) &
-                (!string.IsNullOrEmpty(legalFormComboBox.Text)));
-            return isValid;
-        }
-
     }
 }
